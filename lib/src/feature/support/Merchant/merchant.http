@@ -1,0 +1,67 @@
+POST {{baseUrl}}/sp/ApiMgmtMchtAcctTxnBilledSearch/queryasync HTTP/1.1
+Authorization: Bearer {{authorization}}
+content-type: application/json
+
+{
+    "AcctId":null,
+    "PrgEttyId":null,
+}
+//ApiMonDashboard
+//RpCustTxnListSC
+
+###
+POST {{baseUrl}}/sp/ApiMonDashboard/queryasyncoltp HTTP/1.1
+Authorization: Bearer {{authorization}}
+content-type: application/json
+
+{
+
+}
+###
+POST {{baseUrl}}/sp/RpCustTxnListSC/queryasyncnouser HTTP/1.1
+Authorization: Bearer {{authorization}}
+content-type: application/json
+
+{
+ "FromDate":"20250101",
+ "ToDate":"20251223",
+"RgstionName":'abbab',
+ "SiteId":null,
+ "MID":null,
+ "LocNo":null,
+ "TadNo":null,
+ "TID":null,
+ "MediaNo":null,
+ "LocEttyId":null
+}
+
+
+	# @FromDate	date = NULL,
+	# @ToDate		date = NULL,
+	# @SiteId varchar(20) = NULL,
+	# @MID  varchar(15) = NULL,
+	# @LocNo varchar(15) = NULL,
+	# @TadNo varchar(8) = NULL,
+	# @TID  varchar(8) = NULL
+
+Billed TAB
+(1) ApiMgmtMchtAcctTxnBilledSearch,
+     ...AcctId, 
+     ...PrgEttyId,
+     ...FromDate,
+     ...ToDate,
+     ...TxnCtgry
+(2) ApiMgmtMchtAcctTxnItemList (product list)
+     ...TxnId
+
+Unbilled TAB
+(1) ApiMgmtMchtAcctTxnUnbillSearch,
+     ...AcctId, 
+     ...PrgEttyId,
+     ...FromDate,
+     ...ToDate,
+     ...TxnCtgry
+(2) ApiMgmtMchtAcctTxnItemList (product list)
+     ...TxnId
+(3) Coming soon...(1) RpeDriverwayMchtTxnUnbillSearch, (eDriveway)
+(4) Coming soon...(2) RpeDriverwayMchtTxnItemList  (eDriveway)
